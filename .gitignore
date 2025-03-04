@@ -1,6 +1,7 @@
 #custom
 .vscode
 app/data/my_custom
+app/data/Room-detection-1
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
