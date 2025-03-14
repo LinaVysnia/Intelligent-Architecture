@@ -3,6 +3,8 @@
 app/data/my_custom
 app/data/Room-detection-1
 app/data/BuilderFormer-4-4
+yolo*.pt
+runs/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
