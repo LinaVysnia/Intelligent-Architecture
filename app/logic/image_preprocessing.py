@@ -1,6 +1,6 @@
 import cv2
 import numpy as np
-from PIL import Image
+from PIL import Image, ImageEnhance 
 
 valid_formats = ['.png', '.jpg', '.jpeg', '.bmp']
 def check_accepted_format(file_dir):
@@ -44,14 +44,15 @@ def recolour(img : Image):
     img_grey = img.convert('L')
     return img_grey
 
-def pre_process(image_loc, resize = False, new_size = (640, 640), reclr = True, threshold = None):
+def pre_process(image_loc, resize = False, new_size = (640, 640), reclr = True, threshold = None, contrast = None):
     """Pre-processes the image. Ensures the format is rgb.
     Args:
         resize = False by default because it's not neccessary for Yolo models as they resize and pad by default . Rescales image and pads if necessary. 
         new_size = tuple(int, int) new size for rescaling. Will only be efefctive if rescale is set to true'
         reclr = True by default. Removes saturation as to not confuse the model. 
         threshold = None or integer between 0 and 255. If not none then when recolourint the image will be thresholded based on the given value
-    """
+        contrast = None or float. 0 to 1 will reduce contrast. Above 1 will increase contrast
+     """
 
     status, message = check_accepted_format(image_loc)
     #because of the app simplicity and the lack of meaningful UI, I make a choice to stop the program if this fails
@@ -62,6 +63,11 @@ def pre_process(image_loc, resize = False, new_size = (640, 640), reclr = True, 
 
     if reclr:
         image = recolour(image)
+
+        if contrast:
+            contrast_image = ImageEnhance.Contrast(image) 
+            image = contrast_image.enhance(contrast)
+
         if threshold:
             image = image.point(lambda x: 255 if x > threshold else 0)
 
