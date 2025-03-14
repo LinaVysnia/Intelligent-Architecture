@@ -14,7 +14,7 @@ image_loc = "app/data/my_custom/image (16).png"
 
 ################################################
 #Format check with preprocessing
-image = pre_process(image_loc, threshold=None)
+image = pre_process(image_loc)
 
 ################################################
 #Getting a prediction result from the model
