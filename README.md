@@ -176,3 +176,9 @@ The final model used is **YOLOv8s-seg** (small, segmentation variant), trained o
 - [BuilderFormer-4 Dataset](https://universe.roboflow.com/builderformer/builderformer-4/dataset/4)
 - [Deep Floor Plan Recognition Using a Multi-Task Network (2019)](https://arxiv.org/pdf/1908.11025)
 - [Room Classification on Floor Plan Graphs using GNNs (2021)](https://arxiv.org/pdf/2108.05947)
+
+---
+
+## More
+
+The full project documentation can be found [here](https://docs.google.com/document/d/1UkhhtIs63hSMtFtOdrl_XOZLH1OMUwXIU_sdPuVnaow/edit?usp=sharing)
